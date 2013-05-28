@@ -12,81 +12,75 @@
  *= require_tree .
  */
 
-label {
-  display: block;
-}
-
-.hint {
-  color: grey;
-  font-style: italic;
+body, input, textarea, button {
+  color: #333;
+  font: 16px/1.4 Lucida Grande;
+  margin: 0;
 }
 
 body {
-  background-color: #fff;
-  color: #333;
-  font-family: verdana, arial, helvetica, sans-serif;
-  font-size: 13px;
-  line-height: 18px;
+  padding: 1em;
+  margin: auto;
+  max-width: 500px;
 }
 
-p, ol, ul, td {
-  font-family: verdana, arial, helvetica, sans-serif;
-  font-size: 13px;
-  line-height: 18px;
+.notice {
+  color: darkgreen;
+  background: lightgreen;
+  padding: 1em;
+  border-radius: .5em;
+  border: 1px dashed green;
 }
 
-pre {
-  background-color: #eee;
-  padding: 10px;
-  font-size: 11px;
-}
-
+/* Links */
 a {
   color: #000;
-  &:visited {
-    color: #666;
-  }
-  &:hover {
-    color: #fff;
-    background-color: #000;
-  }
+}
+a:hover, a:focus {
+  color: #fff;
+  outline: 2px solid #000;
+  background-color: #000;
 }
 
-div {
-  &.field, &.actions {
-    margin-bottom: 10px;
-  }
+/* Lists */
+ul {
+  list-style: none;
+  padding: 0;
 }
-
-#notice {
-  color: green;
+li {
+  padding: 1em;
+  background: #eee;
+  border: 1px dashed #ccc;
 }
+li + li { border-top: 0 }
+li:first-child { border-radius: .5em .5em 0 0 }
+li:last-child  { border-radius: 0 0 .5em .5em }
 
-.field_with_errors {
-  padding: 2px;
-  background-color: red;
-  display: table;
+/* Forms */
+input, textarea {
+  padding: .5em;
+  border: 1px solid #ccc;
+  border-radius: .25em;
+  margin: .2em 0;
 }
-
-#error_explanation {
-  width: 450px;
-  border: 2px solid red;
-  padding: 7px;
-  padding-bottom: 0;
-  margin-bottom: 20px;
-  background-color: #f0f0f0;
-  h2 {
-    text-align: left;
-    font-weight: bold;
-    padding: 5px 5px 5px 15px;
-    font-size: 12px;
-    margin: -7px;
-    margin-bottom: 0px;
-    background-color: #c00;
-    color: #fff;
-  }
-  ul li {
-    font-size: 12px;
-    list-style: square;
-  }
+label {
+  display: block;
+  margin: 1em 0 0 0;
+}
+.hint {
+  color: grey;
+  font-style: italic;
+  display: block;
+}
+.form-actions {
+  margin: 1em 0;
+}
+.field_with_errors input,
+.field_with_errors textarea {
+  border-color: red;
+  background: pink;
+}
+span.error {
+  display: block;
+  color: red;
 }

@@ -1,0 +1,21 @@
+<h1>Sign Up</h1>
+
+<%= form_for @user do |f| %>
+  <div class="form-inputs">
+    <h3>Login info</h3>
+
+    <%= f.label :email %>
+    <%= f.email_field :email %>
+    <small class="hint">e.g. yourname@company.com</small>
+
+    <%= f.label :password %>
+    <%= f.password_field :password %>
+
+    <%= f.label :password_confirmation %>
+    <%= f.password_field :password_confirmation %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

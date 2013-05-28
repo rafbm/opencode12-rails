@@ -8,6 +8,8 @@
 </head>
 <body>
 
+<%= content_tag(:div, alert,  class: 'alert')  if alert %>
+<%= content_tag(:div, notice, class: 'notice') if notice %>
 <%= yield %>
 
 </body>
