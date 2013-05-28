@@ -7,8 +7,7 @@ class SignupsController < ApplicationController
     @signup = Signup.new(signup_params)
 
     if @signup.save
-      redirect_to root_path,
-        notice: "Successfully signed up as <b>#{@signup.user.email}</b>!".html_safe
+      redirect_to root_path, notice: @signup.success_message
     else
       render 'new'
     end

@@ -19,4 +19,9 @@ class Signup < Service
       false
     end
   end
+
+  # Messages
+  def success_message
+    "Successfully signed up as <b>#{user.email}</b>!".html_safe
+  end
 end
