@@ -5,16 +5,10 @@
 
 <ul>
   <% @users.each do |user| %>
+    <% company = present(user.company) %>
     <li>
       <b><%= mail_to user.email %></b><br>
-      <% case %>
-      <% when user.company.name? && user.company.website? %>
-        <%= link_to user.company.name, user.company.website_url %>
-      <% when user.company.name? && !user.company.website? %>
-        <%= user.company.name %>
-      <% when !user.company.name? && user.company.website? %>
-        <%= link_to user.company.website_host, user.company.website_url %>
-      <% end %>
+      <%= company.linked_name %>
     </li>
   <% end %>
 </ul>
