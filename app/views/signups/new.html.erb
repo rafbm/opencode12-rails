@@ -1,0 +1,22 @@
+<h1>Sign Up</h1>
+
+<%= simple_form_for @signup do |f| %>
+  <div class="form-inputs">
+    <h3>Login info</h3>
+    <%= f.simple_fields_for @signup.user do |fields| %>
+      <%= fields.input :email, as: :email_hint %>
+      <%= fields.input :password %>
+      <%= fields.input :password_confirmation %>
+    <% end %>
+
+    <%= f.simple_fields_for @signup.company do |fields| %>
+      <h3>Company info</h3>
+      <%= fields.input :name %>
+      <%= fields.input :website, as: :url_hint %>
+    <% end %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>
