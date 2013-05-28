@@ -1,29 +1,17 @@
 <h1>Sign Up</h1>
 
-<%= form_for @user do |f| %>
+<%= simple_form_for @user do |f| %>
   <div class="form-inputs">
     <h3>Login info</h3>
+    <%= f.input :email, as: :email_hint %>
+    <%= f.input :password %>
+    <%= f.input :password_confirmation %>
 
-    <%= f.label :email %>
-    <%= f.email_field :email %>
-    <small class="hint">e.g. yourname@company.com</small>
-
-    <%= f.label :password %>
-    <%= f.password_field :password %>
-
-    <%= f.label :password_confirmation %>
-    <%= f.password_field :password_confirmation %>
-
-    <%= fields_for @company do |fields| %>
+    <%= simple_fields_for @company do |fields| %>
       <h3>Company info</h3>
-
-      <%= fields.label :name %>
-      <%= fields.text_field :name %>
-
-      <%= fields.label :website %>
-      <%= fields.text_field :website %>
+      <%= fields.input :name %>
+      <%= fields.input :website, as: :url_hint %>
     <% end %>
-    <small class="hint">e.g. www.yourcompany.com</small>
   </div>
 
   <div class="form-actions">
