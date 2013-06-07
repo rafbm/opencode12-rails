@@ -7,15 +7,13 @@ class Signup < Service
   def save
     user.company = company
 
-    if valid?
-      if transaction { user.save && company.save }
-        Notifier.new_signup(user).deliver
-        true
-      else
-        errors[:base] << 'There was an error on our hand. Please try again.'
-        false
-      end
+    return false if invalid?
+
+    if transaction { user.save && company.save }
+      Notifier.new_signup(user).deliver
+      true
     else
+      errors[:base] << 'There was an error on our end. Please try again.'
       false
     end
   end
